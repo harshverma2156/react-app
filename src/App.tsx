@@ -9,9 +9,6 @@ function App() {
     'London',
     'Paris'
   ];
-
-
-  
    const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
