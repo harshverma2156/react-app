@@ -1,6 +1,4 @@
-import ListGroup from './components/ListGroup';
-import Message from './components/ListGroup';
-// import { Fragment } from 'react/jsx-runtime';
+import { useState } from "react";
 
 function App() {
 
@@ -11,28 +9,24 @@ function App() {
     'London',
     'Paris'
   ];
-  items = [];
 
- 
 
-  const getMessage = () => {
-    return ;;
-  }
-
-  if(items.length === 0)
-
-    return <><h1>List</h1><p>No item found!</p></>;
+  
+   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
-
-    
   <>
     <h1>List</h1>
-    {items.length === 0 ? <p>No Item Found</p> : null}
+    {items.length === 0 && <p>No Item Found</p> }
     <ul className="list-group">
-        {items.map(item => (
-          <li key={item}>{item}</li>
-          ))}
+        {items.map((item, index) => (
+          <li className={ selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
+          key={item} 
+          onClick={() => { setSelectedIndex(index);}}
+        >
+          {item}
+        </li>
+      ))}
     </ul>
   </>
   
